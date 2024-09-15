@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   springboot-app:
-    image: dongkyeomjang/docker-compose-example
+    image: <image name>
     container_name: springboot-app
     ports:
       - "8080:8080"
