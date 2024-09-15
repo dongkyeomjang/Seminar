@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  springboot-app:
+    image: dongkyeomjang/docker-compose-example
+    container_name: springboot-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  db:
+    image: mysql
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: seminar1!
+      MYSQL_DATABASE: example
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:
